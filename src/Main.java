@@ -85,6 +85,31 @@ public class Main {
         alumnas[2] = mati;
 
         imprimirArreglo(alumnas); // llamo a la funcion que tiene el foreach
+
+
+        //3er parte: creo uno curso
+        Curso curso = new Curso();
+        curso.nombre= "backend";
+
+        //3er parte: creo uno profesor
+        Profesor profesor = new Profesor();
+        profesor.nombre= "Fran";
+        profesor.apellido = "gomez";
+
+        Documento docFran = new Documento();
+        docFran.tipo = "CC";
+        docFran.numero = 1234532;
+        profesor.documento = docFran;
+
+        // 3er parte: ahora necesito que mi curso tenga como atributo a este profesor que a su vez tiene sus propios atb y los del documento
+        // // y va a tener el array de alumnas llamado alumnas..
+        curso.profesor = profesor;
+         // 3er parte: mi curso
+        curso.alumnas = alumnas;
+
+        // llamo a las alumnas de ese curso
+        imprimirInfoCurso(curso);
+
     }
 
 
@@ -101,6 +126,14 @@ public class Main {
         // en un for normal el alumna.imprimirNombreCompleto(); seria alumna[i].imprimirNombreCompleto();
     }
 
+
+    //3er parte imprimo todo sobre el curso
+    public static void imprimirInfoCurso(Curso curso){
+        System.out.println("El curso es " + curso.nombre);
+        System.out.println("El profesor es " + curso.profesor);
+        System.out.println("Las alumnas son ");
+        imprimirArreglo(curso.alumnas);
+    }
 
 
 }
